@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import navbar from './navbar.css'
+import navbar from "./navbar.css";
 
 export const Navbar = () => {
   return (
     <div>
-      <nav class="mb-4 navbar navbar-expand-lg navbar-dark unique-color-dark bg-dark">
+      <nav class="mb-4 navbar navbar-expand-lg navbar-dark unique-color-dark bg-dark top" >
         <a class="navbar-brand" href="#">
           <img
             src="https://mdbootstrap.com/img/logo/mdb-transparent.png"
@@ -27,14 +28,23 @@ export const Navbar = () => {
         <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item ">
-              <a class="nav-link" href="#">
-               Login
-              </a>
+              <Link
+                to={{
+                  pathname: "/",
+                  search: "login",
+                }}
+                class="nav-link"
+              >
+                Login
+              </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-            Registrar
-              </a>
+              <Link to={{
+                  pathname: "/",
+                  search: "registrar",
+                }} class="nav-link">
+                Registrar
+              </Link>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -44,7 +54,7 @@ export const Navbar = () => {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-             Hola Dennis
+                Hola Dennis
               </a>
               <div
                 class="dropdown-menu dropdown-menu-right dropdown-cyan"
