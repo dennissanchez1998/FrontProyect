@@ -1,24 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useContext } from "react";
 import { Login } from "../login/Login";
 import { Registrar } from "../registrar/Registrar";
 import home from "./home.css";
+import AuthContext from './../../context/autenticacion/AuthContext'
 
 export const Home = (props) => {
   console.log(props.location.search);
-  let tipo =""
 
+  
+  const authContext = useContext(AuthContext)
+  const { autenticado, iniciarSesion } = authContext
 
+  useEffect(() => {
+
+    if(autenticado){    
+        props.history.push('/publicaciones')
+    }
+    
+    return;
+}, [ autenticado ])
 
   return (
     <>
       <div class="sidenav">
         <div class="login-main-text">
-          <h2>
-            Application
-            <br /> Login Page
-         
-          </h2>
-          <p>Login or register from here to access.</p>
+          
         </div>
       </div>
       <div class="main">

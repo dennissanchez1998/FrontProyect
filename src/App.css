@@ -39,7 +39,7 @@
 
 
 body{
-  background: rgb(238, 238, 238);
+  background: rgba(238, 238, 238, 0.753);
   margin: 0;
   padding: 0;
 }

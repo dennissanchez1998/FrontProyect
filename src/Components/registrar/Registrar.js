@@ -31,7 +31,7 @@ export const Registrar = () => {
     if (password !== confirmar) {
       return console.log("Los passwords no son iguales");
       }
-      
+      const tlf = `${codigo}-${telefono}`;
       console.log(formulario);
 
      registrarUsuario({
@@ -39,7 +39,7 @@ export const Registrar = () => {
       apellido,
       email,
       codigo,
-      telefono,
+      telefono:tlf,
       password,
     }); 
   };

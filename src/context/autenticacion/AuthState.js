@@ -1,7 +1,11 @@
 // 1. IMPORTACIONES
-import React, { useReducer } from 'react'
+import React, {
+    useReducer
+} from 'react'
 
-
+import axios from 'axios'
+import clienteAxios from './../../config/axios'
+import tokenAuth from './../../config/token'
 
 import AuthContext from './AuthContext'
 import AuthReducer from './AuthReducer'
@@ -13,7 +17,9 @@ const AuthState = (props) => {
     const initialState = {
         mensaje: null,
         autenticado: null,
-        usuario: null
+        usuario: {
+            nombre:''
+        }
     }
 
     // B. CONFIGURACIÓN DEL REDUCER
@@ -25,9 +31,9 @@ const AuthState = (props) => {
         // VAMOS A EJECUTAR UN PROCESO ASÍNCRONO
 
         console.log(datos);
-    /*     try {
+        try {
             // EJECUTAMOS UN MÉTODO POST DE CREACIÓN DE USUARIO EN EL BACKEND
-            const respuesta = await axios.post("http://localhost:4000/api/usuarios", datos)
+            const respuesta = await axios.post("http://localhost:4000/api/auth/register", datos)
 
             console.log(respuesta)
 
@@ -37,24 +43,90 @@ const AuthState = (props) => {
                 payload: respuesta.data
             })
 
-        } catch(e){
+             // OBTENER EL USUARIO
+             verificarUsuario()
+
+        } catch (e) {
             console.log(e)
-        } */
+        }
+    }
+
+    const iniciarSesion = async (datos) => {
+
+
+        console.log(datos);
+        try {
+
+            const respuesta = await clienteAxios.post("/api/auth/login", datos)
+            console.log(respuesta);
+
+            dispatch({
+                type: "LOGIN_EXITOSO",
+                payload: respuesta.data
+            })
+
+        } catch (e) {
+            console.log(e)
+            return
+        }
+
+        // OBTENER EL USUARIO
+          verificarUsuario();
+    }
+
+
+    const verificarUsuario = async () => {
+        const token = localStorage.getItem('token')
+
+       if(token){
+           // Anexar en clienteAxios el token a través de x-auth-token
+           tokenAuth(token)
+       }
+
+       try {
+           
+           const respuesta = await clienteAxios.get('/api/auth')
+           console.log(respuesta)
+
+           dispatch({
+               type: "OBTENER_USUARIO",
+               payload: respuesta.data.usuario
+           })
+
+
+       } catch(e){
+           return console.log(e)
+       }
     }
     
+
+    const cerrarSesion = async () => {
+        dispatch({
+            type: "CERRAR_SESION",
+            payload: null
+        })
+    }
+
+
+
 
 
     // D. RETORNO
     return (
         <AuthContext.Provider
-            value={{
+            value={
+            {
                 mensaje: state.mensaje,
                 autenticado: state.autenticado,
                 usuario: state.usuario,
                 registrarUsuario,
-            }}
-        >
-            {props.children}
+                iniciarSesion,
+                    verificarUsuario,
+                    cerrarSesion
+            }
+        } > 
+        {props.children}
+         
         </AuthContext.Provider> 
     )
 }
