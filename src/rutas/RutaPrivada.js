@@ -15,14 +15,15 @@
      const authContext = useContext(AuthContext)
      const { autenticado, verificarUsuario } = authContext
  
- 
+     console.log(props);
      useEffect(() => {
          verificarUsuario()
      }, [])
- 
+
      return (
          <Route
              {...props}
+
              render={(props) => {    
                  return !autenticado ?
                      (

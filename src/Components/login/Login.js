@@ -1,10 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext ,useEffect} from "react";
 import login from "./login.css";
 import imagen from "../../img/Logotipo.png";
 import { Link } from "react-router-dom";
 import AuthContext from "./../../context/autenticacion/AuthContext";
 
-export const Login = () => {
+export const Login = (props) => {
   const [formulario, setFormulario] = useState({
     email: "",
     password: "",
@@ -14,12 +14,24 @@ export const Login = () => {
 
   const { email, password } = formulario;
 
+
+/*   useEffect(() => {
+
+    if(autenticado){    
+      props.history.push('/publicaciones');
+    }
+    
+    return;
+}, [ autenticado ]) */
+
   const monitoreoCambios = (event) => {
     setFormulario({
       ...formulario,
       [event.target.name]: event.target.value,
     });
   };
+
+
 
   const enviarDatos = (event) => {
     event.preventDefault();

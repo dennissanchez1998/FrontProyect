@@ -41,7 +41,7 @@ export default (state, action) => {
                     usuario:{
                         nombre:''
                     },
-                    autenticado: null,
+                    autenticado: false,
                     mensaje: null
                 }
         

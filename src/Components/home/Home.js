@@ -7,18 +7,18 @@ import AuthContext from './../../context/autenticacion/AuthContext'
 export const Home = (props) => {
   console.log(props.location.search);
 
-  
+  const token = localStorage.getItem('token');
   const authContext = useContext(AuthContext)
   const { autenticado, iniciarSesion } = authContext
 
   useEffect(() => {
-
-    if(autenticado){    
-        props.history.push('/publicaciones')
+console.log(autenticado);
+    if(autenticado || token ){    
+      props.history.push('/publicaciones');
     }
     
     return;
-}, [ autenticado ])
+}, [ autenticado,token ])
 
   return (
     <>

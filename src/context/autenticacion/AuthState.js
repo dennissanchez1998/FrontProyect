@@ -16,7 +16,7 @@ const AuthState = (props) => {
     // A. ESTADO INICIAL
     const initialState = {
         mensaje: null,
-        autenticado: null,
+        autenticado: false,
         usuario: {
             nombre:''
         }

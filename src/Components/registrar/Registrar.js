@@ -1,8 +1,8 @@
-import React, { useState , useContext} from "react";
+import React, { useState , useContext,useEffect} from "react";
 import { Link } from "react-router-dom";
 import AuthContext from './../../context/autenticacion/AuthContext'
 
-export const Registrar = () => {
+export const Registrar = (props) => {
   const [formulario, setFormulario] = useState({
     nombre: "",
     apellido: "",
@@ -24,6 +24,15 @@ export const Registrar = () => {
       [event.target.name]: event.target.value,
     });
   };
+/* 
+  useEffect(() => {
+
+    if(autenticado){    
+        props.history.push('/publicaciones')
+    }
+    
+    return;
+}, [ autenticado ]) */
   const enviarDatos = (event) => {
     event.preventDefault();
 
@@ -38,7 +47,6 @@ export const Registrar = () => {
       nombre,
       apellido,
       email,
-      codigo,
       telefono:tlf,
       password,
     }); 
