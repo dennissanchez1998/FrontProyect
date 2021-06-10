@@ -1,6 +1,7 @@
-import React, { useState , useContext,useEffect} from "react";
+import React, { useState , useContext} from "react";
 import { Link } from "react-router-dom";
 import AuthContext from './../../context/autenticacion/AuthContext'
+import './registrar.css'
 
 export const Registrar = (props) => {
   const [formulario, setFormulario] = useState({
@@ -13,7 +14,7 @@ export const Registrar = (props) => {
     confirmar: "",
   });
   const ctxAuth = useContext(AuthContext)
-  const { mensaje, autenticado, usuario, registrarUsuario } = ctxAuth
+  const { registrarUsuario } = ctxAuth
 
   const { nombre, apellido, email, codigo, telefono, password, confirmar } =
     formulario;

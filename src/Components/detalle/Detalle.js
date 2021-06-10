@@ -1,18 +1,17 @@
 import React, { useState, useContext, useEffect } from "react";
 import AuthContext from "./../../context/autenticacion/AuthContext";
 import PublicacionContext from "./../../context/publicaciones/PublicacionesContext";
-import moduleName from "./Detalle.css";
-import { Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap";
+import  "./Detalle.css";
+import { Modal, ModalBody, ModalFooter } from "reactstrap";
 
 export const Detalle = (props) => {
   const token = localStorage.getItem("token");
   const ctxAuth = useContext(AuthContext);
-  const { mensaje, autenticado, usuario, registrarUsuario } = ctxAuth;
+  const { autenticado } = ctxAuth;
 
   const publicacionContext = useContext(PublicacionContext);
   const {
-    publicaciones,
-    obtenerPublicaciones,
+  
     obtenerPublicacion,
     publicacion,
   } = publicacionContext;
@@ -32,7 +31,7 @@ export const Detalle = (props) => {
     };
 
     generarEventos();
-  }, []);
+  }, [autenticado,token,props,obtenerPublicacion]);
 
   const [modal, setmodal] = useState(false);
 
@@ -50,23 +49,23 @@ export const Detalle = (props) => {
               <article class="gallery-wrap">
                 <div class="img-big-wrap">
                   <div>
-                    <a href="#">
+                    <a>
                       <img src="https://via.placeholder.com/450x450" />
                     </a>
                   </div>
                 </div>
                 <div class="img-small-wrap">
                   <div class="item-gallery">
-                    <img src="https://via.placeholder.com/100x100" />{" "}
+                    <img src="https://via.placeholder.com/100x100" />
                   </div>
                   <div class="item-gallery">
-                    <img src="https://via.placeholder.com/100x100" />{" "}
+                    <img src="https://via.placeholder.com/100x100" />
                   </div>
                   <div class="item-gallery">
-                    <img src="https://via.placeholder.com/100x100" />{" "}
+                    <img src="https://via.placeholder.com/100x100" />
                   </div>
                   <div class="item-gallery">
-                    <img src="https://via.placeholder.com/100x100" />{" "}
+                    <img src="https://via.placeholder.com/100x100" />
                   </div>
                 </div>
               </article>

@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Login } from "../login/Login";
 import { Registrar } from "../registrar/Registrar";
-import home from "./home.css";
+import  "./home.css";
 import AuthContext from "./../../context/autenticacion/AuthContext";
 
 export const Home = (props) => {
@@ -9,7 +9,7 @@ export const Home = (props) => {
 
   const token = localStorage.getItem("token");
   const authContext = useContext(AuthContext);
-  const { autenticado, iniciarSesion } = authContext;
+  const { autenticado } = authContext;
 
   useEffect(() => {
     console.log(autenticado);
@@ -18,7 +18,7 @@ export const Home = (props) => {
     }
 
     return;
-  }, [autenticado, token]);
+  }, [autenticado, token,props]);
 
   return (
     <>

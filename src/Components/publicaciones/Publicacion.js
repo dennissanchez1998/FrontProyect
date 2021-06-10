@@ -1,13 +1,13 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, {  useContext, useEffect } from "react";
 import AuthContext from "./../../context/autenticacion/AuthContext";
 import PublicacionContext from "./../../context/publicaciones/PublicacionesContext";
 import { Link } from "react-router-dom";
-import css from "./publicacion.css";
+import "./publicacion.css";
 
 export const Publicacion = (props) => {
   const token = localStorage.getItem("token");
   const ctxAuth = useContext(AuthContext);
-  const { mensaje, autenticado, usuario, registrarUsuario } = ctxAuth;
+  const { autenticado } = ctxAuth;
 
   const publicacionContext = useContext(PublicacionContext);
   const { publicaciones, obtenerPublicaciones } = publicacionContext;
@@ -27,7 +27,7 @@ export const Publicacion = (props) => {
     };
 
     generarEventos();
-  }, []);
+  }, [autenticado,token]);
 
   return (
     <div style={{ marginTop: "10%" }} className="fadeIn">

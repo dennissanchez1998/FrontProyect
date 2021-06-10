@@ -1,5 +1,5 @@
-import React, { useState, useContext ,useEffect} from "react";
-import login from "./login.css";
+import React, { useState, useContext} from "react";
+import "./login.css";
 import imagen from "../../img/Logotipo.png";
 import { Link } from "react-router-dom";
 import AuthContext from "./../../context/autenticacion/AuthContext";
@@ -10,7 +10,7 @@ export const Login = (props) => {
     password: "",
   });
   const ctxAuth = useContext(AuthContext);
-  const { autenticado, iniciarSesion } = ctxAuth;
+  const {  iniciarSesion } = ctxAuth;
 
   const { email, password } = formulario;
 

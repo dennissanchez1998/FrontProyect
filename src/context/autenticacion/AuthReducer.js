@@ -1,4 +1,4 @@
-export default (state, action) => {
+const reducer =(state, action) => {
     switch (action.type) {
 
         case "REGISTRO_EXITOSO":
@@ -54,3 +54,6 @@ export default (state, action) => {
         
     }
 }
+
+
+export default reducer

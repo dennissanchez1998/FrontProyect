@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "./../../context/autenticacion/AuthContext";
 
-import navbar from "./navbar.css";
+import "./navbar.css";
 import imagen from "../../img/Logotipo.png";
 
 export const Navbar = () => {
   const authContext = useContext(AuthContext);
-  const { autenticado, iniciarSesion, usuario, cerrarSesion } = authContext;
+  const { autenticado, usuario, cerrarSesion } = authContext;
 
   const clickLogout = () => {
     cerrarSesion();
@@ -16,9 +16,9 @@ export const Navbar = () => {
   return (
     <div>
       <nav class="mb-4 navbar navbar-expand-lg navbar-light unique-color-light bg-gradient-dark top">
-        <a class="navbar-brand" href="#">
+        <p class="navbar-brand" >
           <img src={imagen} height="70" width="120" alt="" className="imagen" />
-        </a>
+        </p>
         <button
           class="navbar-toggler"
           type="button"
@@ -70,12 +70,12 @@ export const Navbar = () => {
                   class="dropdown-menu dropdown-menu-right dropdown-cyan"
                   aria-labelledby="navbarDropdownMenuLink-4"
                 >
-                  <a class="dropdown-item mouse" href="#">
+                  <li class="dropdown-item mouse" >
                     Ver Perfil
-                  </a>
-                  <a class="dropdown-item mouse" href="#">
+                  </li>
+                  <li class="dropdown-item mouse">
                     Editar Perfil
-                  </a>
+                  </li>
                   <li class="dropdown-item mouse" onClick={clickLogout}>
                     Cerrar Sesion
                   </li>
