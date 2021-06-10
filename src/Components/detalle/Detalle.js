@@ -31,7 +31,7 @@ export const Detalle = (props) => {
     };
 
     generarEventos();
-  }, [autenticado,token,props,obtenerPublicacion]);
+  }, [autenticado,token,id]);
 
   const [modal, setmodal] = useState(false);
 
@@ -49,23 +49,23 @@ export const Detalle = (props) => {
               <article class="gallery-wrap">
                 <div class="img-big-wrap">
                   <div>
-                    <a>
-                      <img src="https://via.placeholder.com/450x450" />
-                    </a>
+                    <p>
+                      <img src="https://via.placeholder.com/450x450" alt="prueba" />
+                    </p>
                   </div>
                 </div>
                 <div class="img-small-wrap">
                   <div class="item-gallery">
-                    <img src="https://via.placeholder.com/100x100" />
+                    <img src="https://via.placeholder.com/100x100" alt="prueba" />
                   </div>
                   <div class="item-gallery">
-                    <img src="https://via.placeholder.com/100x100" />
+                    <img src="https://via.placeholder.com/100x100" alt="prueba" />
                   </div>
                   <div class="item-gallery">
-                    <img src="https://via.placeholder.com/100x100" />
+                    <img src="https://via.placeholder.com/100x100" alt="prueba" />
                   </div>
                   <div class="item-gallery">
-                    <img src="https://via.placeholder.com/100x100" />
+                    <img src="https://via.placeholder.com/100x100" alt="prueba" />
                   </div>
                 </div>
               </article>
@@ -146,7 +146,7 @@ export const Detalle = (props) => {
                       <img
                         src="https://bootdey.com/img/Content/avatar/avatar7.png"
                         class="img-radius"
-                        alt="User-Profile-Image"
+                        alt="prueba"
                       />
                     </div>
                     <h6 class="f-w-600 m-t-25 m-b-10">Alessa Robert</h6>

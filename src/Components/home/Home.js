@@ -18,7 +18,7 @@ export const Home = (props) => {
     }
 
     return;
-  }, [autenticado, token,props]);
+  }, [autenticado, token]);
 
   return (
     <>

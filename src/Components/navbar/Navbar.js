@@ -57,7 +57,7 @@ export const Navbar = () => {
                  </Link>
                </li>
               <li class="nav-item dropdown " style={{borderLeft:'1px solid'}}>
-                <a
+                <p
                   class="nav-link dropdown-toggle mouse letra"
                   id="navbarDropdownMenuLink-4"
                   data-toggle="dropdown"
@@ -65,7 +65,7 @@ export const Navbar = () => {
                   aria-expanded="false"
                 >
                   Hola {usuario.nombre}
-                </a>
+                </p>
                 <div
                   class="dropdown-menu dropdown-menu-right dropdown-cyan"
                   aria-labelledby="navbarDropdownMenuLink-4"

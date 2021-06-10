@@ -79,6 +79,7 @@ export const Publicacion = (props) => {
                 <div class="card-body">
                   <img
                     class="img-fluid"
+                    alt="prueba"
                     src="https://dummyimage.com/600x400/55595c/fff"
                   />
                   <h5 class="card-title">{publicaciones[0].titulo}</h5>
@@ -98,7 +99,7 @@ export const Publicacion = (props) => {
                         <img
                           class="card-img-top"
                           src="https://dummyimage.com/600x400/55595c/fff"
-                          alt="Card image cap"
+                          alt="prueba"
                         />
                         <div class="card-body">
                           <h4 class="card-title">
