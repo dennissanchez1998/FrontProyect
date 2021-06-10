@@ -1,8 +1,11 @@
+// eslint-disable-next-line react-hooks/exhaustive-deps
 import React, { useState, useContext, useEffect } from "react";
 import AuthContext from "./../../context/autenticacion/AuthContext";
 import PublicacionContext from "./../../context/publicaciones/PublicacionesContext";
 import  "./Detalle.css";
 import { Modal, ModalBody, ModalFooter } from "reactstrap";
+
+
 
 export const Detalle = (props) => {
   const token = localStorage.getItem("token");
