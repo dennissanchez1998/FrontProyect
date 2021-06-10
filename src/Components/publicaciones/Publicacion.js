@@ -115,7 +115,7 @@ export const Publicacion = (props) => {
                           <p class="card-text">{e.estado}</p>
                           <div class="row">
                             <div class="col">
-                              <p class="btn btn-danger btn-block">
+                              <p class="btn btn-primary btn-block">
                                 {e.precio} $
                               </p>
                             </div>

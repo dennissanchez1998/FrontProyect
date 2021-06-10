@@ -140,7 +140,7 @@ export const Detalle = (props) => {
               <div class="col-md-4" style={{width:'500px',height:'500px'}}>
                 <div class="card user-card" style={{width:'440px',height:'500px'}}>
                   <div class="card-header">
-                    <h5>Profile</h5>
+                    <h5>Perfil</h5>
                   </div>
                   <div class="card-block">
                     <div class="user-image">
@@ -151,7 +151,7 @@ export const Detalle = (props) => {
                       />
                     </div>
                     <h6 class="f-w-600 m-t-25 m-b-10">Alessa Robert</h6>
-                    <p class="text-muted">Active | Male | Born 23.05.1992</p>
+                    <p class="text-muted">dennissanchezlix@gmail | +58-4142657784</p>
                     <hr />
                     <p class="text-muted m-t-15">Activity Level: 87%</p>
                     <ul class="list-unstyled activity-leval">
@@ -177,31 +177,15 @@ export const Detalle = (props) => {
                         </div>
                       </div>
                     </div>
-                 
-                    <hr />
-                    <div class="row justify-content-center user-social-link">
-                      <div class="col-auto">
-                        <a href="#!">
-                          <i class="fa fa-facebook text-facebook"></i>
-                        </a>
-                      </div>
-                      <div class="col-auto">
-                        <a href="#!">
-                          <i class="fa fa-twitter text-twitter"></i>
-                        </a>
-                      </div>
-                      <div class="col-auto">
-                        <a href="#!">
-                          <i class="fa fa-dribbble text-dribbble"></i>
-                        </a>
-                      </div>
-                    </div>
+            
                   </div>
                 </div>
               </div>
             </>
           ) : null}
         </ModalBody>
+
+        <ModalFooter>
         <button
           class="btn btn-lg btn-success text-center"
           style={{ width: "100%" }}
@@ -210,6 +194,8 @@ export const Detalle = (props) => {
         >
           Cerrar
         </button>
+        </ModalFooter>
+     
       </Modal>
     </div>
   );
