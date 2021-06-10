@@ -15,14 +15,7 @@ export const Login = (props) => {
   const { email, password } = formulario;
 
 
-/*   useEffect(() => {
 
-    if(autenticado){    
-      props.history.push('/publicaciones');
-    }
-    
-    return;
-}, [ autenticado ]) */
 
   const monitoreoCambios = (event) => {
     setFormulario({

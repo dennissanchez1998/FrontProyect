@@ -1,11 +1,20 @@
-// 1. IMPORTACIONES
-import React, {
-    useReducer
-} from 'react';
+export default (state, action) => {
+    switch(action.type){
 
-import axios from 'axios';
-import clienteAxios from './../../config/axios';
-import tokenAuth from './../../config/token';
+        case "OBTENER_PUBLICACIONES":
+            return {
+                ...state,
+                publicaciones: [...action.payload]
+            }
+        
+            case "OBTENER_PUBLICACION":
+                return {
+                    ...state,
+                    publicacion:action.payload
+                }
+    
 
-import PublicacionesContext from './PublicacionesContext';
-import PublicacionesReducer from './PublicacionesReducer';
+        default:
+            return state
+    }
+}

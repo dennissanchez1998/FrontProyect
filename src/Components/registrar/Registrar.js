@@ -24,15 +24,7 @@ export const Registrar = (props) => {
       [event.target.name]: event.target.value,
     });
   };
-/* 
-  useEffect(() => {
 
-    if(autenticado){    
-        props.history.push('/publicaciones')
-    }
-    
-    return;
-}, [ autenticado ]) */
   const enviarDatos = (event) => {
     event.preventDefault();
 

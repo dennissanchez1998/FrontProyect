@@ -33,7 +33,30 @@ export const Navbar = () => {
         <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
           <ul class="navbar-nav ml-auto">
             {autenticado ? (
-              <li class="nav-item dropdown ">
+              <>
+                 <li class="nav-item letra">
+                 <Link
+                   to={{
+                     pathname: "/publicaciones",
+                   
+                   }}
+                   class="nav-link"
+                 >
+                   Crear Publicación
+                 </Link>
+                </li>
+                <li class="nav-item letra">
+                 <Link
+                   to={{
+                     pathname: "/publicaciones",
+                
+                   }}
+                   class="nav-link"
+                 >
+                   Publicaciones
+                 </Link>
+               </li>
+              <li class="nav-item dropdown " style={{borderLeft:'1px solid'}}>
                 <a
                   class="nav-link dropdown-toggle mouse letra"
                   id="navbarDropdownMenuLink-4"
@@ -58,6 +81,9 @@ export const Navbar = () => {
                   </li>
                 </div>
               </li>
+                
+</>
+              
             ) : (
               <>
                 <li class="nav-item letra">

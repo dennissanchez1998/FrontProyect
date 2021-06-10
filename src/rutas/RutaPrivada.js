@@ -17,7 +17,7 @@
  
      console.log(props);
      useEffect(() => {
-         verificarUsuario()
+         verificarUsuario();
      }, [])
 
      return (
