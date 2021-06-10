@@ -37,7 +37,7 @@ export const Navbar = () => {
                  <li class="nav-item letra">
                  <Link
                    to={{
-                     pathname: "/publicaciones",
+                     pathname: "/crear",
                    
                    }}
                    class="nav-link"

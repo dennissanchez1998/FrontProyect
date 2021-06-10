@@ -8,6 +8,7 @@ import { Publicacion } from "./Components/publicaciones/Publicacion";
 import RutaPrivada from "./rutas/RutaPrivada";
 import PublicacionesState from "./context/publicaciones/PublicacionesState";
 import { Detalle } from "./Components/detalle/Detalle";
+import { Crear } from "./Components/crear/Crear";
 
 function App() {
   return (
@@ -21,6 +22,11 @@ function App() {
               <RutaPrivada
                 path="/publicaciones"
                 component={Publicacion}
+                exact
+              />
+                 <RutaPrivada
+                path="/crear"
+                component={Crear}
                 exact
               />
                <RutaPrivada

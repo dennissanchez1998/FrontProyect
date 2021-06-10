@@ -149,8 +149,8 @@ export const Detalle = (props) => {
                         alt="prueba"
                       />
                     </div>
-                    <h6 class="f-w-600 m-t-25 m-b-10">Alessa Robert</h6>
-                    <p class="text-muted">dennissanchezlix@gmail | +58-4142657784</p>
+                    <h6 class="f-w-600 m-t-25 m-b-10">{publicacion.usuario.nombre} {publicacion.usuario.apellido}</h6>
+                    <p class="text-muted">{publicacion.usuario.email} | {publicacion.usuario.telefono}</p>
                     <hr />
                     <p class="text-muted m-t-15">Activity Level: 87%</p>
                     <ul class="list-unstyled activity-leval">
