@@ -33,7 +33,7 @@ const AuthState = (props) => {
         console.log(datos);
         try {
             // EJECUTAMOS UN MÉTODO POST DE CREACIÓN DE USUARIO EN EL BACKEND
-            const respuesta = await axios.post("http://localhost:4000/api/auth/register", datos)
+            const respuesta = await clienteAxios.post("/api/auth/register", datos)
 
             console.log(respuesta)
 
