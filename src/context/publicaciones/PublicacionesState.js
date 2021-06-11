@@ -4,6 +4,8 @@ import React, {
 } from 'react';
 
 
+
+
 import clienteAxios from '../../config/axios';
 
 
@@ -15,17 +17,18 @@ import PublicacionesReducer from './PublicacionesReducer';
 // 2. FUNCIONES PRINCIPAL
 const PublicacionesState = (props) => {
 
- 
-     // A. ESTADO INICIAL
-     const initialState = {
-         publicaciones: [],
-         publicacion:''
+
+    // A. ESTADO INICIAL
+    const initialState = {
+        publicaciones: [],
+        publicacion: '',
+        creado: false
     }
 
-        // B. CONFIGURACIÓN DEL REDUCER
+    // B. CONFIGURACIÓN DEL REDUCER
     const [state, dispatch] = useReducer(PublicacionesReducer, initialState);
 
-    
+
     // C. FUNCIONES PROPIAS
 
     const obtenerPublicaciones = async () => {
@@ -36,15 +39,15 @@ const PublicacionesState = (props) => {
             dispatch({
                 type: "OBTENER_PUBLICACIONES",
                 payload: resultado.data.publicaciones
-            }) 
+            })
 
         } catch (e) {
             dispatch({
                 type: "OBTENER_PUBLICACIONES",
                 payload: [e]
-            }) 
-            
-            
+            })
+
+
         }
 
 
@@ -56,23 +59,45 @@ const PublicacionesState = (props) => {
 
         console.log(params);
 
-         try {
+        try {
 
             const resultado = await clienteAxios.get(`/publicaciones/${params}`)
             console.log("El resultado es:", resultado)
             dispatch({
                 type: "OBTENER_PUBLICACION",
                 payload: resultado.data.publicacion
-            }) 
+            })
 
         } catch (e) {
             dispatch({
                 type: "OBTENER_PUBLICACION",
                 payload: [e]
-            }) 
-            
-            
-        } 
+            })
+
+
+        }
+
+
+    }
+
+    const crearPublicacion = async (value) => {
+
+        console.log(value);
+
+        try {
+
+            const resultado = await clienteAxios.post('/publicaciones/crear', value)
+            console.log(resultado);
+            console.log("llega aqui");
+            dispatch({
+                type: "CREAR_PUBLICACION",
+                payload: resultado.data
+            })
+
+
+        } catch (error) {
+
+        }
 
 
     }
@@ -80,21 +105,26 @@ const PublicacionesState = (props) => {
 
 
 
-       // D. RETORNO
-    
-       return (
+    // D. RETORNO
 
-        <PublicacionesContext.Provider
-            value={{
-                   publicaciones: state.publicaciones,
-                   publicacion: state.publicacion,
-                   obtenerPublicaciones,
-                   obtenerPublicacion
+    return (
 
-            }}
-        >
-            {props.children}
-        </PublicacionesContext.Provider>
+        <
+        PublicacionesContext.Provider value = {
+            {
+                publicaciones: state.publicaciones,
+                    publicacion: state.publicacion,
+                creado:state.creado,
+                obtenerPublicaciones,
+                obtenerPublicacion,
+                crearPublicacion
+
+            }
+        } >
+        {
+            props.children
+        } <
+        /PublicacionesContext.Provider>
 
     )
 

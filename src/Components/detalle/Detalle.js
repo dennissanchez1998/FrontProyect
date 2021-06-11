@@ -51,24 +51,24 @@ export const Detalle = (props) => {
             <aside class="col-sm-4">
               <article class="gallery-wrap">
                 <div class="img-big-wrap">
-                  <div>
-                    <p>
-                      <img src="https://via.placeholder.com/450x450" alt="prueba" />
+                  <div style={{maxWidth:'500px'}}>
+                    <p style={{maxWidth:'500px'}}>
+                      <img src={publicacion.imagen} alt="prueba" style={{maxWidth:'500px'}} />
                     </p>
                   </div>
                 </div>
                 <div class="img-small-wrap">
                   <div class="item-gallery">
-                    <img src="https://via.placeholder.com/100x100" alt="prueba" />
+                    <img src={publicacion.imagen} alt="prueba" />
                   </div>
                   <div class="item-gallery">
-                    <img src="https://via.placeholder.com/100x100" alt="prueba" />
+                    <img src={publicacion.imagen} alt="prueba" />
                   </div>
                   <div class="item-gallery">
-                    <img src="https://via.placeholder.com/100x100" alt="prueba" />
+                    <img src={publicacion.imagen} alt="prueba" />
                   </div>
                   <div class="item-gallery">
-                    <img src="https://via.placeholder.com/100x100" alt="prueba" />
+                    <img src={publicacion.imagen} alt="prueba" />
                   </div>
                 </div>
               </article>

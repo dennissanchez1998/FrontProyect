@@ -16,6 +16,11 @@
                 return {
                     ...state,
                     publicacion:action.payload
+            }
+            case "CREAR_PUBLICACION":
+                return {
+                    ...state,
+                    creado :true
                 }
     
 

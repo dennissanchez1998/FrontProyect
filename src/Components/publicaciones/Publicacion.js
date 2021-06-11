@@ -1,4 +1,4 @@
-import React, {  useContext, useEffect } from "react";
+import React, { useContext, useEffect,useState } from "react";
 import AuthContext from "./../../context/autenticacion/AuthContext";
 import PublicacionContext from "./../../context/publicaciones/PublicacionesContext";
 import { Link } from "react-router-dom";
@@ -12,13 +12,12 @@ export const Publicacion = (props) => {
   const publicacionContext = useContext(PublicacionContext);
   const { publicaciones, obtenerPublicaciones } = publicacionContext;
 
-  console.log("estas son", publicaciones.length);
 
   useEffect(() => {
-    
     const generarEventos = async () => {
-      if (autenticado && token) {
+      if (autenticado || token) {
         await obtenerPublicaciones();
+       
         return;
       } else {
         props.history.push("/");
@@ -27,8 +26,14 @@ export const Publicacion = (props) => {
     };
 
     generarEventos();
-  }, [autenticado,token]);
+  }, [autenticado, token]);
+  
 
+
+  const monitoreoCambios = (event) => {
+    console.log(event.target.innerHTML);
+  };
+ 
   return (
     <div style={{ marginTop: "10%" }} className="fadeIn">
       <div style={{ marginLeft: "5%", marginRight: "5%", marginBottom: "5%" }}>
@@ -39,35 +44,66 @@ export const Publicacion = (props) => {
                 <i class="fa fa-list"></i> Categorias
               </div>
               <ul class="list-group category_block">
-                <li class="list-group-item">
-                  <a href="category.html">Carros, Motos y Otros</a>
+                <li
+                  class="list-group-item mouse"
+                  onClick={(e) => monitoreoCambios(e)}
+                  id="Carros, Motos y Otros"
+                >
+                  <p>Carros, Motos y Otros</p>
                 </li>
-                <li class="list-group-item">
-                  <a href="category.html">Celulares y Teléfonos</a>
+                <li
+                  class="list-group-item mouse"
+                  onClick={(e) => monitoreoCambios(e)}
+                >
+                  <p>Celulares y Teléfonos</p>
                 </li>
-                <li class="list-group-item">
-                  <a href="category.html">Animales</a>
+                <li
+                  class="list-group-item mouse"
+                  onClick={(e) => monitoreoCambios(e)}
+                >
+                  <p>Animales</p>
                 </li>
-                <li class="list-group-item">
-                  <a href="category.html">Cámaras y Accesorios</a>
+                <li
+                  class="list-group-item mouse"
+                  onClick={(e) => monitoreoCambios(e)}
+                >
+                  <p>Cámaras y Accesorios</p>
                 </li>
-                <li class="list-group-item">
-                  <a href="category.html">Computación</a>
+                <li
+                  class="list-group-item mouse"
+                  onClick={(e) => monitoreoCambios(e)}
+                >
+                  <p>Computación</p>
                 </li>
-                <li class="list-group-item">
-                  <a href="category.html">Consolas y Videojuegos</a>
+                <li
+                  class="list-group-item mouse"
+                  onClick={(e) => monitoreoCambios(e)}
+                >
+                  <p>Consolas y Videojuegos</p>
                 </li>
-                <li class="list-group-item">
-                  <a href="category.html">Cosméticos</a>
+                <li
+                  class="list-group-item mouse"
+                  onClick={(e) => monitoreoCambios(e)}
+                >
+                  <p>Cosméticos</p>
                 </li>
-                <li class="list-group-item">
-                  <a href="category.html">Salud y Vida</a>
+                <li
+                  class="list-group-item mouse"
+                  onClick={(e) => monitoreoCambios(e)}
+                >
+                  <p>Salud y Vida</p>
                 </li>
-                <li class="list-group-item">
-                  <a href="category.html">Libros</a>
+                <li
+                  class="list-group-item mouse"
+                  onClick={(e) => monitoreoCambios(e)}
+                >
+                  <p>Libros</p>
                 </li>
-                <li class="list-group-item">
-                  <a href="category.html">Arte</a>
+                <li
+                  class="list-group-item mouse"
+                  onClick={(e) => monitoreoCambios(e)}
+                >
+                  <p>Arte</p>
                 </li>
               </ul>
             </div>
@@ -80,7 +116,7 @@ export const Publicacion = (props) => {
                   <img
                     class="img-fluid"
                     alt="prueba"
-                    src="https://dummyimage.com/600x400/55595c/fff"
+                    src={publicaciones[0].imagen}
                   />
                   <h5 class="card-title">{publicaciones[0].titulo}</h5>
                   <p class="card-text">{publicaciones[0].descripcion}</p>
@@ -96,18 +132,13 @@ export const Publicacion = (props) => {
                 : publicaciones.map((e) => (
                     <div class="col-12 col-md-6 col-lg-4">
                       <div class="card">
-                        <img
-                          class="card-img-top"
-                          src="https://dummyimage.com/600x400/55595c/fff"
-                          alt="prueba"
-                        />
+                        <img class="card-img-top" src={e.imagen} alt="prueba" />
                         <div class="card-body">
                           <h4 class="card-title">
                             <Link
                               to={{
                                 pathname: `/publicaciones/${e._id}`,
                               }}
-                 
                             >
                               {e.titulo}
                             </Link>
